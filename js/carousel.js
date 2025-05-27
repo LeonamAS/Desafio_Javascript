@@ -5,12 +5,21 @@
 //Array storage class
 let carouselArr = [];
 
+// document.getElementById("carousel").style.backgroundColor = "red";
+document.getElementById("carousel").style.backgroundImage = "url('img/XL Cabine.jpg')";
+document.getElementById("carousel-title").style.fontSize = "xx-large";
+document.getElementById("carousel-title").style.fontFamily = "Verdana";
+document.getElementById("carousel-title").innerHTML = "Send help!!!";
+
 
 //class Carousel
 class Carousel {
-
+    constructor(image, title, url){
+        this.image = image;
+        this.title = title;
+        this.url = url;
+    }
     
-      
     static Start(arr){
         if(arr){
 
@@ -29,4 +38,4 @@ class Carousel {
     static Next(){
         
     }
-};
+}
