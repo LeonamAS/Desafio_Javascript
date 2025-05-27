@@ -4,11 +4,19 @@
 
 //Array storage class
 let carouselArr = [];
+console.log(carouselArr.length);
 
+document.getElementById("carousel").style.backgroundColor = "red";
+document.getElementById("carousel-title").innerHTML = "SEND HELP!!!!";
 
 //class Carousel
 class Carousel {
 
+    constructor (image, title, url) {
+        this._image = image;
+        this._title = title;
+        this._url = url;
+    }
     
       
     static Start(arr){
@@ -27,6 +35,8 @@ class Carousel {
     }
 
     static Next(){
-        
+        //Needs something here
     }
-};
+}
+
+console.log(carouselArr.length);
