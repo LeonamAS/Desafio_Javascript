@@ -4,39 +4,39 @@
 
 //Array storage class
 let carouselArr = [];
-console.log(carouselArr.length);
-
-document.getElementById("carousel").style.backgroundColor = "red";
-document.getElementById("carousel-title").innerHTML = "SEND HELP!!!!";
+let time = 0;
 
 //class Carousel
 class Carousel {
-
-    constructor (image, title, url) {
-        this._image = image;
-        this._title = title;
-        this._url = url;
+    constructor(image, title, url) {
+        this.image = image;
+        this.title = title;
+        this.url = url;
     }
-    
-      
-    static Start(arr){
-        if(arr){
 
-            if(arr.length > 0){
+
+    static Start(arr) {
+        console.log(carouselArr);
+
+        if (arr) {
+
+            if (arr.length > 0) {
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function(){ Carousel.Next(); },5000);
+                Carousel._interval = setInterval(function () { Carousel.Next(); }, 5000);
             }
-            
+
         } else {
             throw "Method Start need a Array Variable.";
         }
     }
 
-    static Next(){
-        //Needs something here
+    static Next() {
+        time++
+        
+        
+        document.getElementById("carousel-title").innerHTML = carouselArr[0].title;
+        console.log(time);
     }
 }
-
-console.log(carouselArr.length);
