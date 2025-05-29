@@ -36,15 +36,17 @@
     </header>
     <main>
         <div id="carousel">
-            <img id="image" src="img/imagem_1.jpg">
+            <a id="link">
+                <img id="imagem">
+            </a>
         </div>
         <div id="carousel-title">
         </div>
         <script>
             //insert each image on carousel
-            carouselArr.push(new Carousel("img src='img/imagem_1.jpg'", "Esta é a nova Ranger Ford 2022. Verifique novidades.", "lancamento.html"));
-            carouselArr.push(new Carousel("imagem_2.jpg", "Ford a nossa história", "#"));
-            carouselArr.push(new Carousel("imagem_3.jpg", "Nova Ford Bronco Sport 2022", "lancamento.html"));
+            carouselArr.push(new Carousel("img/imagem_1.jpg", "Esta é a nova Ranger Ford 2022. Verifique novidades.", "lancamento.html"));
+            carouselArr.push(new Carousel("img/imagem_2.jpg", "Ford a nossa história", "https://www.ford.pt/experiencia-ford/ford-blog/o-nosso-legado"));
+            carouselArr.push(new Carousel("img/imagem_3.jpg", "Nova Ford Bronco Sport 2022", "lancamento.html"));
             Carousel.Start(carouselArr);
         </script>
     </main>
@@ -62,5 +64,4 @@
         </div>
     </footer>
 </body>
-
 </html>

@@ -4,7 +4,6 @@
 
 //Array storage class
 let carouselArr = [];
-let time = 0;
 
 //class Carousel
 class Carousel {
@@ -16,7 +15,6 @@ class Carousel {
 
 
     static Start(arr) {
-        console.log(carouselArr);
 
         if (arr) {
 
@@ -24,7 +22,7 @@ class Carousel {
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function () { Carousel.Next(); }, 5000);
+                Carousel._interval = setInterval(function () { Carousel.Next(); }, 2000);
             }
 
         } else {
@@ -33,10 +31,34 @@ class Carousel {
     }
 
     static Next() {
-        time++
-        
-        
-        document.getElementById("carousel-title").innerHTML = carouselArr[0].title;
-        console.log(time);
+        // Div Carrosel
+        document.getElementById("carousel").style.height = "300px";
+        document.getElementById("carousel").style.display = "flex";
+        document.getElementById("carousel").style.justifyContent = "center";
+
+        // Imagem do carrossel
+        document.getElementById("imagem").style.width = "600px";
+        document.getElementById("imagem").style.padding = "20px";
+        document.getElementById("imagem").style.alignItems = "center";
+
+        // Troca das imagens
+        if (Carousel._sequence == 0) {
+            this._sequence++
+            document.getElementById("imagem").src = carouselArr[0].image;
+            document.getElementById("carousel-title").innerHTML = carouselArr[0].title;
+            document.getElementById("link").href = carouselArr[0].url;
+        }
+        else if (Carousel._sequence == 1) {
+            this._sequence++
+            document.getElementById("imagem").src = carouselArr[1].image;
+            document.getElementById("carousel-title").innerHTML = carouselArr[1].title;
+            document.getElementById("link").href = carouselArr[1].url;
+        }
+        else {
+            Carousel._sequence = 0;
+            document.getElementById("imagem").src = carouselArr[2].image;
+            document.getElementById("carousel-title").innerHTML = carouselArr[2].title;
+            document.getElementById("link").href = carouselArr[2].url;
+        }
     }
 }
