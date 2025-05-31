@@ -5,13 +5,6 @@
 //Array storage class
 let carouselArr = [];
 
-// document.getElementById("carousel").style.backgroundColor = "red";
-document.getElementById("carousel").style.backgroundImage = "url('img/XL Cabine.jpg')";
-document.getElementById("carousel-title").style.fontSize = "xx-large";
-document.getElementById("carousel-title").style.fontFamily = "Verdana";
-document.getElementById("carousel-title").innerHTML = "Send help!!!";
-
-
 //class Carousel
 class Carousel {
     constructor(image, title, url){
@@ -19,7 +12,7 @@ class Carousel {
         this.title = title;
         this.url = url;
     }
-    
+
     static Start(arr){
         if(arr){
 
@@ -27,7 +20,7 @@ class Carousel {
                 Carousel._sequence = 0;
                 Carousel._size = arr.length;
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function(){ Carousel.Next(); },5000);
+                Carousel._interval = setInterval(function(){ Carousel.Next(); }, 2000);
             }
             
         } else {
@@ -36,6 +29,15 @@ class Carousel {
     }
 
     static Next(){
-        
+        let sequencia = this._sequence;
+        let itemCarrossel = carouselArr[sequencia];
+
+        let texto = document.getElementById("carousel-title");
+        texto.innerHTML = itemCarrossel.title;
+        this._sequence++;
+
+        if (this._sequence >= this._size) {
+            this._sequence = 0;
+        } 
     }
 }
