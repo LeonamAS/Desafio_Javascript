@@ -32,22 +32,15 @@ class Carousel {
 
     static Next() {
         let sequencia = Carousel._sequence;
+        let item = carouselArr[sequencia];
+
         let carrossel = document.getElementById("carousel");
-        let imagem = document.getElementById("imagem");
         let titulo = document.getElementById("carousel-title");
-        // let link = document.getElementById("link");
 
-        // Div Carrosel
-        carrossel.style.height = "70%";
-        carrossel.style.display = "flex";
-        carrossel.style.justifyContent = "center";
+        let imagem = `<img src="img/${item.image}" style="height: 100%; display: flex; justify-self: center;">`;
 
-        // Imagem do carrossel
-        imagem.style.width = "70%";
-
-        imagem.src = carouselArr[sequencia].image;
-        titulo.innerHTML = carouselArr[sequencia].title;
-        // link.href = carouselArr[sequencia].url;
+        carrossel.innerHTML = imagem;
+        titulo.innerHTML = `<a href="${item.url}" style="color: black">${item.title}</a>`;
         this._sequence++
 
         if (this._sequence == this._size) {

@@ -1,7 +1,6 @@
 
 //car
 let carArr = [];
-let item = 0;
 
 class Car {
     constructor(nome, preco, alturaCacamba, alturaVeiculo, alturaSolo, capacidadeCarga, motor, potencia, volumeCacamba, roda, image) {
@@ -25,6 +24,7 @@ function GetCarArrPosition(arr, carClass) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].nome === carClass.nome)
             return i;
+        
     }
     return -1;
 }
@@ -33,11 +33,10 @@ function GetCarArrPosition(arr, carClass) {
 function SetCarToCompare(el, carClass) {
     if (carClass instanceof Car) {
         if (el.checked == true) {
-            carArr[item] = carClass;
-            item++;
+            GetCarArrPosition(carArr, carClass);
             console.log(carArr);
         } else {
-            carArr.shift();
+            
             console.log(carArr);
         }
     } else {
@@ -60,6 +59,6 @@ function HideCompare() {
 }
 
 function UpdateCompareTable() {
-
+    
 }
 
