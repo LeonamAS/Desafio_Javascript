@@ -30,11 +30,13 @@ function GetCarArrPosition(arr, carClass) {
 
 function SetCarToCompare(el, carClass) {
     if (carClass instanceof Car) {
-        if (el.checked = true) {
+        if (el.checked == true) {
             carArr[item] = carClass;
             item++;
+            if (item == 2) {
+                item = 0;
+            }
             console.log(carArr);
-            console.log(GetCarArrPosition(carArr, carClass));
         } else {
             carArr.shift();
             console.log(carArr);
@@ -59,5 +61,8 @@ function HideCompare() {
 }
 
 function UpdateCompareTable() {
-
+    document.getElementById(`compare_image_${item}`).innerHTML = `<img src="${carArr[item].image}">`;
+    item++
+    document.getElementById(`compare_image_${item}`).innerHTML = `<img src="${carArr[item].image}">`;
+    item = 0;
 }

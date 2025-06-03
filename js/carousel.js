@@ -32,8 +32,15 @@ class Carousel {
         let sequencia = this._sequence;
         let itemCarrossel = carouselArr[sequencia];
 
-        let texto = document.getElementById("carousel-title");
-        texto.innerHTML = itemCarrossel.title;
+        let carrossel = document.getElementById("carousel");
+        let tituloCarrossel = document.getElementById("carousel-title");
+
+        let imagem = `<img src="img/${itemCarrossel.image}" style="height: 100%; display: block; margin: auto">`;
+        let texto = `<a href="${itemCarrossel.url}" style="color: black">${itemCarrossel.title}</a>`;
+
+        carrossel.innerHTML = imagem;
+        tituloCarrossel.innerHTML = texto;        
+
         this._sequence++;
 
         if (this._sequence >= this._size) {
