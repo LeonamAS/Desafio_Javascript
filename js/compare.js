@@ -38,7 +38,7 @@ function SetCarToCompare(el, carClass) {
             }
             console.log(carArr);
         } else {
-            carArr.shift();
+            carArr.push();
             console.log(carArr);
         }
     } else {
